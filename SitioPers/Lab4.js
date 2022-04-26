@@ -1,4 +1,8 @@
-const numero = prompt("Give me a number");
+var numInp = prompt("Give me a number", "0");
+while (numInp <= 0){
+  var numInp = prompt("Please give me a number higher than 0", "0");
+}
+const number = parseInt(numInp);
 function random(min, max) {
     return Math.floor((Math.random() * (max - min + 1)) + min);
 }
@@ -18,91 +22,90 @@ else {
   alert("Shame. You've answered incorrectly, peasant. You took "+ Ttime + "ms of my time to disappoint me, shame on you.");
 }
 
-document.write("<p class = Preguntas> Del 0 al numero ingresado </p>");
-for (let i = 0; i <= numero; i++) {
-  document.write("<p class = Answers>",i,"</p>");
+document.write("<p class = Problem> Count, Squares, and cubes from 1 to " + number +".</p>");
+for (let i = 1; i <= number; i++) {
+  document.write("<p class = Answer>",i," ",i*i," ",i*i*i,"</p>");
 }
 
-document.write("<p class = Preguntas> Los cuadrados del 0 al numero ingresado </p>");
-for (let i = 0; i <= numero; i++) {
-  document.write("<p class = Answers>",i*i,"</p>");
+
+array1 = new Array();
+for (let i = 0; i <= 9; i++){
+  numA = prompt("Give me a number for an array. ("+(i+1)+"/10)");
+  array1.push(parseInt(numA));
 }
 
-document.write("<p class = Preguntas> Los cubos del 0 al numero ingresado </p>");
-for (let i = 0; i <= numero; i++) {
-  document.write("<p class = Answers>",i*i*i,"</p>");
-}
-const arreglo = new Array(0,0,5,0,-9,-6,7);
-function contador(miArreglo){
-
-  var ceros = 0;
-  var negativos = 0;
-  var mayoresACero = 0;
-  for (let i = 0; i<= miArreglo.length;i++){
-    if(miArreglo[i]==0){
-      ceros++;
+function counter(myArray){
+  var zeroes = 0;
+  var negatives = 0;
+  var overZero = 0;
+  for (let i = 0; i<= myArray.length;i++){
+    if(myArray[i]==0){
+      zeroes++;
     }
-    else if (miArreglo[i]<0){
-      negativos++;
+    else if (myArray[i]<0){
+      negatives++;
     }
-    else if (miArreglo[i]>0){
-      mayoresACero++;
+    else if (myArray[i]>0){
+      overZero++;
     }
   }
-  document.write("<p class = Preguntas> El numero de 0's en el arreglo del codigo son: </p>");
-  document.write("<p class = Answers>",ceros,"</p>");
-  document.write("<p class = Preguntas> El numero de numeros negativos en el arreglo del codigo son: </p>");
-  document.write("<p class = Answers>",negativos,"</p>");
-  document.write("<p class = Preguntas> El numero de numeros mayores a cero en el arreglo del codigo son: </p>");
-  document.write("<p class = Answers>",mayoresACero,"</p>");
+  document.write("<p class = Problem> In the array, there are "+zeroes+" zeroes, "+negatives+" negative numbers, and "+overZero+" numbers greater than zero.</p>");
 }
-contador(arreglo);
+counter(array1);
 
-
-function promedios(otroArreglo){
-  var arreglo = [[1,3],[6,4]];
-  var suma = 0;
-  var promedio = 0;
-  for(var i=0; i< otroArreglo.length; i++) {
-    var x = otroArreglo[i];
-    for(var j=0; j< x.length; j++) {
-      suma   = suma + x[j];
+let matriz = [[9,8],[9,7]];
+let sum=0;
+let prom=0;
+function promedio(myArray){
+    for(var i=0; i< myArray.length; i++) {
+        var x = myArray[i];
+        for(var j=0; j< x.length; j++) {
+            sum   = sum + x[j];
+        }
     }
-   }
-   document.write("<p class = Preguntas> promedio del arreglo del codigo: </p>");
-   promedio = suma/2;
-   document.write("<p class = Answers>",promedio,"</p>");
+    document.write("<p class = Problem>The average of the arrays is:</p>")
+    avg = sum/4;
+    document.write("<p class = Answer>"+avg+"</p>")
 }
-promedios(arreglo);
+promedio(matriz);
 
-document.write("<p class = Preguntas> Del numero ingresado hasta -10 digitos </p>");
-for (let i = numero; i >= -10; i--) {
-  document.write("<p class = Answers>",i,"</p>");
+function reverseNum(num){
+  return (
+    parseFloat(
+      num
+        .toString()
+        .split("")
+        .reverse()
+        .join("")
+    ) * Math.sign(num)
+  )
 }
-document.write("<h1>Problema a mi eleccion para resolver con JavaScript</h1>");
-document.write("<p id=Chase>Este es José ( ╹▽╹ ). </p>");
+
+document.write("<p class = Problem>"+number+" backwards is ",reverseNum(number),"</p>");
+
+document.write("<h1>JavaScript Problem</h1>");
+document.write("<p id=Chase>It was a normal day in the Mushroom Kingdom, </p>");
 document.write("<p id=Chase>José quiere andar con María (◕ᴗ◕✿) pero María es la inteligente del salón y solo sale con chicos inteligentes. Como José es un soberano tarado pues María ni lo pela. Obsesionado por obtener el amorx de María.</p>");
 document.write("<p id=Chase>José invoca al demonio azteca tepartolacaratl para hacer un pacto con él y ser el we más inteligente del mundo pero tepartolacaratl hace magia más no milagros así que como es bien mañoso te pide a ti que tires paro y le hagas un programa en JavaScript para que saque los cuadrados de los números porque claro eso fue lo que le pidió José (￣ヘ￣) maldito tepartolacaratl ni le da lo que le pide el José</p>");
 document.write("<p id=Chase>Te niegas pero luego tepartolacaratl te recuerda que una vez te tiro paro para pasar la materia de Ricardo en análisis de software así que de mala gana aceptas (ー_ー゛)</p>");
 document.write("<p id=Chase>Ademas de demonio chantajista y estafador</p>");
 
-
- function numeros(num){
+ function PowerStars(num){
    this.num = num;
    this.sac_cuadrado = sacar_cuadrado(num);
    this.tablamulti = tabla_multiplicar(num)
  }
 
  function tabla_multiplicar(num){
-   document.write("<p class = Preguntas> La tabla de multiplicar del numero que hay en el codigo  </p>");
+   document.write("<p class = Problem> La tabla de multiplicar del numero que hay en el codigo  </p>");
    for( let i =0; i<= 10; i++){
-     document.write("<p class = Answers>",i*num,"</p>");
+     document.write("<p class = Answer>",i*num,"</p>");
    }
  }
 
  function sacar_cuadrado(num){
-   document.write("<p class = Preguntas> El cuadrado del numero que hay en el codigo  </p>");
-   document.write("<p class = Answers>",num*num,"</p>");
+   document.write("<p class = Problem> El cuadrado del numero que hay en el codigo  </p>");
+   document.write("<p class = Answer>",num*num,"</p>");
  }
 
 var numeros1 = new numeros(5);
