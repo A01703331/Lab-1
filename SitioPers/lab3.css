@@ -10,3 +10,19 @@ footer {
 a:hover {
     color: red;
 }
+
+h1 {
+    font-size:24pt;
+    font-family:'Courier New', Courier, monospace
+}
+
+#Chase {
+    font-size:15pt;
+    font-family:'Courier New', Courier, monospace
+}
+
+.Problem {
+    font-size:15pt;
+    font-weight:700;
+    font-family:'Courier New', Courier, monospace
+}

@@ -24,7 +24,7 @@ else {
 
 document.write("<p class = Problem> Count, Squares, and cubes from 1 to " + number +".</p>");
 for (let i = 1; i <= number; i++) {
-  document.write("<p class = Answer>",i," ",i*i," ",i*i*i,"</p>");
+  document.write("<p id = Chase>",i," ",i*i," ",i*i*i,"</p>");
 }
 
 
@@ -53,10 +53,10 @@ function counter(myArray){
 }
 counter(array1);
 
-let matriz = [[9,8],[9,7]];
+let array2 = [[9,8],[9,7]];
 let sum=0;
-let prom=0;
-function promedio(myArray){
+let avg=0;
+function averages(myArray){
     for(var i=0; i< myArray.length; i++) {
         var x = myArray[i];
         for(var j=0; j< x.length; j++) {
@@ -65,9 +65,9 @@ function promedio(myArray){
     }
     document.write("<p class = Problem>The average of the arrays is:</p>")
     avg = sum/4;
-    document.write("<p class = Answer>"+avg+"</p>")
+    document.write("<p id = Chase>"+avg+"</p>")
 }
-promedio(matriz);
+averages(array2);
 
 function reverseNum(num){
   return (
@@ -81,33 +81,40 @@ function reverseNum(num){
   )
 }
 
-document.write("<p class = Problem>"+number+" backwards is ",reverseNum(number),"</p>");
+document.write("<p id = Chase>"+number+" backwards is ",reverseNum(number),"</p>");
 
 document.write("<h1>JavaScript Problem</h1>");
-document.write("<p id=Chase>It was a normal day in the Mushroom Kingdom, </p>");
-document.write("<p id=Chase>José quiere andar con María (◕ᴗ◕✿) pero María es la inteligente del salón y solo sale con chicos inteligentes. Como José es un soberano tarado pues María ni lo pela. Obsesionado por obtener el amorx de María.</p>");
-document.write("<p id=Chase>José invoca al demonio azteca tepartolacaratl para hacer un pacto con él y ser el we más inteligente del mundo pero tepartolacaratl hace magia más no milagros así que como es bien mañoso te pide a ti que tires paro y le hagas un programa en JavaScript para que saque los cuadrados de los números porque claro eso fue lo que le pidió José (￣ヘ￣) maldito tepartolacaratl ni le da lo que le pide el José</p>");
-document.write("<p id=Chase>Te niegas pero luego tepartolacaratl te recuerda que una vez te tiro paro para pasar la materia de Ricardo en análisis de software así que de mala gana aceptas (ー_ー゛)</p>");
-document.write("<p id=Chase>Ademas de demonio chantajista y estafador</p>");
+document.write("<p id=Chase>It was a normal day in the Mushroom Kingdom, Mario went to gather some coins in order to help Yoshi pay off the money he owed after comitting tax fraud countless times, however, Mario doesn't know how much money Yoshi owes as he's been on the run from the cops for over 30 years now.</p>");
+document.write("<p id=Chase>As far as we know, taxes in the mushroom kingdom are a set fee of 1000 coins each year, however, for every missed payment, a fraud must pay what they haven't payed as well as an extra 200 coins on legal fees. Help Mario figure out how much Yoshi owes.</p>");
 
- function PowerStars(num){
-   this.num = num;
-   this.sac_cuadrado = sacar_cuadrado(num);
-   this.tablamulti = tabla_multiplicar(num)
- }
+function Coins(years){
+  this.years = years;
+  this.yevaded = years_evaded(years);
+  this.legal = legal_fees(years);
+  this.total = calculation(years);
+}
 
- function tabla_multiplicar(num){
-   document.write("<p class = Problem> La tabla de multiplicar del numero que hay en el codigo  </p>");
-   for( let i =0; i<= 10; i++){
-     document.write("<p class = Answer>",i*num,"</p>");
-   }
- }
+function years_evaded(years){
+  var coins = 0
+  for(let i=0; i< parseInt(years); i++){
+    coins = coins + 1000
+  }
+  return coins
+}
 
- function sacar_cuadrado(num){
-   document.write("<p class = Problem> El cuadrado del numero que hay en el codigo  </p>");
-   document.write("<p class = Answer>",num*num,"</p>");
- }
+function legal_fees(years){
+  var coins = 0
+  for(let i=1; i< parseInt(years); i++){
+    coins = coins + 200
+  }
+  return coins
+}
 
-var numeros1 = new numeros(5);
-numeros1.sac_cuadrado(num);
-numeros1.tablamulti(num);
+function calculation(years){
+  return years_evaded(years) + legal_fees(years)
+}
+
+var total_coins = new Coins(30);
+document.write("<p id = Chase>The perpetrator owes ", total_coins.yevaded, " coins to the IRS.</p>");
+document.write("<p id = Chase>The cost of legal fees for evading the IRS for ", total_coins.years," years is an estimated ", total_coins.legal ," coins.</p>");
+document.write("<p id = Chase>That means Yoshi owes a total of ",total_coins.total, " coins for evading the IRS for ",  total_coins.years, " years.</p>");

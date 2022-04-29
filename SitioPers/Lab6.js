@@ -11,28 +11,51 @@ function validate(){
     window.alert("Passwords match")
   }
   else {
-    window.alert("Passwords don't match, please make sure they match");
+    window.alert("Passwords don't match");
   }
 }
 
-function addition(){
-  let label_tomioka = document.getElementById("tomioka");
-  label_tomioka.innerHTML = 1;
-  let label_tanjiro = document.getElementById("tanjiro");
-  label_tanjiro.innerHTML = 1;
-  let label_rengoku = document.getElementById("rengoku");
-  label_rengoku.innerHTML = 1;
-  label_compra = document.getElementById("compra");
-  label_compra.innerHTML = 35 + "Dolares con IVA incluido"
+var x = 0;
+var y = 0;
+var z = 0;
+
+function addA(){
+  let voiceGoods = document.getElementById("Voice");
+  x = x+1
+  voiceGoods.innerHTML = x;
 }
 
-function deletion(){
-  let label_tomioka = document.getElementById("tomioka");
-  label_tomioka.innerHTML = 0;
-  let label_tanjiro = document.getElementById("tanjiro");
-  label_tanjiro.innerHTML = 0;
-  let label_rengoku = document.getElementById("rengoku");
-  label_rengoku.innerHTML = 0;
-  label_compra = document.getElementById("compra");
-  label_compra.innerHTML = 0 + " Dolares con IVA incluido"
+function addB(){
+  let acrylicGoods = document.getElementById("Acrylic");
+  y = y+1
+  acrylicGoods.innerHTML = y
+}
+
+function addC(){
+  let tapestryGoods = document.getElementById("Tapestry");
+  z = z+1
+  tapestryGoods.innerHTML = z
+}
+
+function remA(){
+  let voiceGoods = document.getElementById("Voice");
+  x = x-1
+  voiceGoods.innerHTML = x;
+}
+
+function remB(){
+  let acrylicGoods = document.getElementById("Acrylic");
+  y = y-1
+  acrylicGoods.innerHTML = y
+}
+
+function remC(){
+  let tapestryGoods = document.getElementById("Tapestry");
+  z = z-1
+  tapestryGoods.innerHTML = z
+}
+
+function totals(){
+  purchase = document.getElementById("Purchase");
+  purchase.innerHTML = (x*10 + y*15 + z*20) + " Dollars (Tax included)"
 }
